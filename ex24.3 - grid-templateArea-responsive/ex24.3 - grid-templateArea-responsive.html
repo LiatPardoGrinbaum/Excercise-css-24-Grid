@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Grid</title>
+
+    <style>
+      .container {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+          " header header header"
+          "sidebar-1 content1  sidebar-2"
+          "footer footer footer ";
+      }
+
+      header,
+      .content1,
+      .sidebar-1,
+      .sidebar-2,
+      footer {
+        padding: 0.5rem;
+      }
+
+      header {
+        background: rgb(208, 96, 96);
+        grid-area: header;
+      }
+      .sidebar-1 {
+        background: rgb(169, 96, 208);
+        grid-area: sidebar-1;
+      }
+      .content1 {
+        background: rgb(133, 237, 98);
+        grid-area: content1;
+      }
+      .sidebar-2 {
+        background: rgb(115, 163, 240);
+        grid-area: sidebar-2;
+      }
+      footer {
+        background: rgb(240, 203, 67);
+        grid-area: footer;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          display: grid;
+          gap: 1rem;
+          grid-template-columns: 1fr 3fr;
+          grid-template-areas:
+            " header header "
+            "sidebar-1 content1 "
+            "sidebar-2 sidebar-2"
+            "footer footer ";
+        }
+      }
+
+      @media (max-width: 500px) {
+        .container {
+          display: grid;
+          gap: 1rem;
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            " header  "
+            "sidebar-1"
+            "content1 "
+            "sidebar-2"
+            "footer ";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Header</h1>
+      </header>
+      <aside class="sidebar-1">
+        <h1>Sidebar</h1>
+      </aside>
+      <section class="content1">
+        <h2>Content</h2>
+        <h3>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit cumque
+          officia laborum vero at odio itaque magnam obcaecati error architecto
+          .
+        </h3>
+      </section>
+      <aside class="sidebar-2">
+        <h1>Sidebar</h1>
+      </aside>
+      <footer>
+        <h1>Footer</h1>
+      </footer>
+    </div>
+  </body>
+</html>
